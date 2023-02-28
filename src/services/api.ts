@@ -1,10 +1,24 @@
-import {ApolloClient, InMemoryCache, createHttpLink} from '@apollo/client';
+import {ApolloClient, InMemoryCache} from '@apollo/client';
+import {create} from 'apisauce';
 
-const httpLink = createHttpLink({
-  uri: 'https://beta.pokeapi.co/graphql/v1beta',
+const api = create({
+  baseURL: 'https://pokeapi.co/api/v2',
 });
 
-export const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-});
+const CLIENT = 'fetch';
+
+const clients = {
+  graphql: new ApolloClient({
+    uri: 'https://graphql.example.com',
+    cache: new InMemoryCache(),
+  }),
+
+  fetch: {
+    get: async (path: string) => {
+      const response = await api.get(path);
+      return response.data;
+    },
+  },
+};
+export {CLIENT};
+export default clients;
