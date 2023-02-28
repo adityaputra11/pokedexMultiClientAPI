@@ -1,0 +1,12 @@
+{
+    "clients": [
+      {
+        "name": "graphql",
+        "endpoint": "https://graphql.example.com"
+      },
+      {
+        "name": "fetch",
+        "endpoint": "https://api.example.com"
+      }
+    ]
+  }
