@@ -1,9 +1,9 @@
 import React, {ComponentType, FC} from 'react';
 import {View} from 'react-native';
-import {useDispatch} from 'react-redux';
 import PokemonList from '../../components/organism/PokemonList/PokemonList';
 import withApiClient from '../../hoc/withApiClient';
 import {fetchPokemon} from '../../redux/reducers/pokemon';
+import {useAppDispatch} from '../../redux/store';
 import {CLIENT} from '../../services/api';
 import {ApiClient} from '../../utils/types';
 
@@ -12,7 +12,7 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({apiClient}: HomeProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   dispatch(fetchPokemon({apiClient}));
 
   return (

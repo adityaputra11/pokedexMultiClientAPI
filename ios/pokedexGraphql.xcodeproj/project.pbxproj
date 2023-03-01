@@ -12,11 +12,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2650B0F5A4994307B2B8DBA5 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA8DFF82034F6BB5C4C3D9 /* Poppins-Medium.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-pokedexGraphql-pokedexGraphqlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-pokedexGraphql-pokedexGraphqlTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		F70A5F912F1B41F98D6705B2 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C829C3EBF4DE4DDCB3AE16CB /* Poppins-Bold.ttf */; };
 		FA5414686B6B46CB9C531061 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33B341B930534346BB78A4F7 /* Poppins-Light.ttf */; };
-		2650B0F5A4994307B2B8DBA5 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA8DFF82034F6BB5C4C3D9 /* Poppins-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,16 +40,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = pokedexGraphql/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = pokedexGraphql/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-pokedexGraphql-pokedexGraphqlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokedexGraphql-pokedexGraphqlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B341B930534346BB78A4F7 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../src/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-pokedexGraphql.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexGraphql.debug.xcconfig"; path = "Target Support Files/Pods-pokedexGraphql/Pods-pokedexGraphql.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-pokedexGraphql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexGraphql.release.xcconfig"; path = "Target Support Files/Pods-pokedexGraphql/Pods-pokedexGraphql.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-pokedexGraphql-pokedexGraphqlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexGraphql-pokedexGraphqlTests.debug.xcconfig"; path = "Target Support Files/Pods-pokedexGraphql-pokedexGraphqlTests/Pods-pokedexGraphql-pokedexGraphqlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-pokedexGraphql.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokedexGraphql.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = pokedexGraphql/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-pokedexGraphql-pokedexGraphqlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexGraphql-pokedexGraphqlTests.release.xcconfig"; path = "Target Support Files/Pods-pokedexGraphql-pokedexGraphqlTests/Pods-pokedexGraphql-pokedexGraphqlTests.release.xcconfig"; sourceTree = "<group>"; };
+		8EFA8DFF82034F6BB5C4C3D9 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		C829C3EBF4DE4DDCB3AE16CB /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		C829C3EBF4DE4DDCB3AE16CB /* Poppins-Bold.ttf */ = {isa = PBXFileReference; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		33B341B930534346BB78A4F7 /* Poppins-Light.ttf */ = {isa = PBXFileReference; name = "Poppins-Light.ttf"; path = "../src/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8EFA8DFF82034F6BB5C4C3D9 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +144,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8D86FA7165EB4601A9232CC7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C829C3EBF4DE4DDCB3AE16CB /* Poppins-Bold.ttf */,
+				33B341B930534346BB78A4F7 /* Poppins-Light.ttf */,
+				8EFA8DFF82034F6BB5C4C3D9 /* Poppins-Medium.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,17 +165,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		8D86FA7165EB4601A9232CC7 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				C829C3EBF4DE4DDCB3AE16CB /* Poppins-Bold.ttf */,
-				33B341B930534346BB78A4F7 /* Poppins-Light.ttf */,
-				8EFA8DFF82034F6BB5C4C3D9 /* Poppins-Medium.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
