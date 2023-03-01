@@ -7,9 +7,9 @@ interface FetchDataProps {
 }
 export const fetchPokemon = createAsyncThunk(
   'pokemon/fetchPokemon',
-  async ({apiClient, name}: FetchDataProps, thunkAPI) => {
+  async ({apiClient}: FetchDataProps, thunkAPI) => {
     try {
-      const response = await apiClient.get(`/pokemon${name}`);
+      const response = await apiClient.get('/pokemon');
       console.log('response', response);
       return response.data;
     } catch (error: any) {
@@ -50,3 +50,5 @@ export const pokemonSlice = createSlice({
     });
   },
 });
+
+export default pokemonSlice.reducer;

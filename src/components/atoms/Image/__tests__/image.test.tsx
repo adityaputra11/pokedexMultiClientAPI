@@ -1,25 +1,26 @@
-jest.mock('./assets/image.png', () => 'image.png');
-import React from 'react';
 import {render} from '@testing-library/react-native';
-import Image from '../Image';
+import React from 'react';
+import Image, {ImageProps} from '../Image';
+import '@testing-library/jest-native/extend-expect';
+
+const props: ImageProps = {
+  source: {
+    uri: 'https://example.com/image.jpg',
+  },
+  style: {
+    borderRadius: 8,
+  },
+  width: 100,
+  height: 100,
+  testID: 'image',
+};
 
 describe('Image', () => {
-  it('renders correctly with by using uri source props', () => {
-    const {getByTestId} = render(
-      <Image testID="image-from-uri" source={{uri: 'test-image'}} />,
-    );
-    const image = getByTestId('image-from-uri');
-    expect(image.props.source).toStrictEqual({uri: 'test-image'});
-  });
-
-  it('renders correctly with by using local source props', () => {
-    const {getByTestId} = render(
-      <Image
-        testID={'image-from-local'}
-        source={require('./assets/image.png')}
-      />,
-    );
-    const image = getByTestId('image-from-local');
-    expect(image.props.source).toStrictEqual(require('./assets/image.png'));
+  test('renders an image with correct styles', () => {
+    const {getByTestId} = render(<Image {...props} testID="image" />);
+    const image = getByTestId('image');
+    console.log('image', image.props);
+    expect(image).toHaveStyle({width: 100});
+    expect(image).toHaveStyle({height: 100});
   });
 });

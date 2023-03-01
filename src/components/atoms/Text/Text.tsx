@@ -1,4 +1,3 @@
-import {useTheme} from '@react-navigation/native';
 import React, {useContext} from 'react';
 import {
   StyleProp,

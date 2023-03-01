@@ -1,6 +1,7 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import Button from '../Button';
+import '@testing-library/jest-native/extend-expect';
 
 describe('Button', () => {
   it('showing title "Press me" when title is "Press me"', () => {
@@ -33,7 +34,7 @@ describe('Button', () => {
       />,
     );
     const button = getByTestId('test-background-button');
-    expect(button.props.style).toContainEqual({backgroundColor: 'red'});
+    expect(button).toHaveStyle({backgroundColor: 'red'});
   });
 
   it('disables the button is not called when disabled is true', () => {

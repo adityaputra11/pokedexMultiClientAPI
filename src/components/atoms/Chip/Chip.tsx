@@ -1,31 +1,19 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet, Text} from 'react-native';
+import {Pressable, Text} from 'react-native';
+import styles from './styles';
 
 interface ChipProps {
   label: string;
   onPress?: () => void;
+  testID: string;
 }
 
-const Chip = ({label, onPress}: ChipProps) => {
+const Chip = ({label, onPress, testID}: ChipProps) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <Pressable style={styles.container} testID={testID} onPress={onPress}>
       <Text style={styles.label}>{label}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#eee',
-    borderRadius: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    margin: 4,
-  },
-  label: {
-    color: '#333',
-    fontSize: 16,
-  },
-});
 
 export default Chip;
