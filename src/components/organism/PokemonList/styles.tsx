@@ -5,6 +5,7 @@ type ListStyles = {
   button: ViewStyle;
   title: TextStyle;
   renderItem: ViewStyle;
+  renderTitle: ViewStyle;
 };
 
 const styles: ListStyles = StyleSheet.create<ListStyles>({
@@ -19,6 +20,7 @@ const styles: ListStyles = StyleSheet.create<ListStyles>({
     fontSize: 40,
   },
   renderItem: {backgroundColor: '#ffcb3b'},
+  renderTitle: {padding: 24, alignItems: 'center'},
 });
 
 export default styles;

@@ -11,10 +11,11 @@ import styles from './styles';
 export interface TextProps extends RNTextProps {
   children: React.ReactNode;
   weight?: 'bold' | 'medium' | 'light';
+  size?: number;
   style?: StyleProp<TextStyle>;
 }
 
-const Text = ({children, weight, style, ...props}: TextProps) => {
+const Text = ({children, weight, size, style, ...props}: TextProps) => {
   const {theme} = useContext(ThemeContext);
   const getFontSize = () => {
     switch (weight) {
@@ -32,7 +33,7 @@ const Text = ({children, weight, style, ...props}: TextProps) => {
     <RNText
       style={[
         styles.text,
-        {fontFamily: getFontSize(), color: theme.textColor},
+        {fontFamily: getFontSize(), color: theme.textColor, fontSize: size},
         style,
       ]}
       {...props}>

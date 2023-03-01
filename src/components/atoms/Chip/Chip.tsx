@@ -5,7 +5,7 @@ import styles from './styles';
 interface ChipProps {
   label: string;
   onPress?: () => void;
-  testID: string;
+  testID?: string;
 }
 
 const Chip = ({label, onPress, testID}: ChipProps) => {
