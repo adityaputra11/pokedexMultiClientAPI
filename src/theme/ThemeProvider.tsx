@@ -1,4 +1,5 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useEffect} from 'react';
+import {Appearance} from 'react-native';
 
 type ThemeType = {
   backgroundColor: string;
@@ -11,14 +12,20 @@ type ThemeContextType = {
   setTheme: React.Dispatch<React.SetStateAction<ThemeType>>;
 };
 
-const defaultTheme: ThemeType = {
+const lightTheme: ThemeType = {
   backgroundColor: '#ffffff',
-  textColor: '#000000',
+  textColor: '#42494D',
   borderColor: '#cccccc',
 };
 
+const darkTheme: ThemeType = {
+  backgroundColor: '#000000',
+  textColor: '#ffffff',
+  borderColor: '#999999',
+};
+
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: defaultTheme,
+  theme: lightTheme,
   setTheme: () => {},
 });
 
@@ -27,7 +34,17 @@ type ThemeProviderProps = {
 };
 
 export const ThemeProvider = ({children}: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<ThemeType>(defaultTheme);
+  const [theme, setTheme] = useState<ThemeType>(
+    Appearance.getColorScheme() === 'dark' ? darkTheme : lightTheme,
+  );
+
+  useEffect(() => {
+    const subscription = Appearance.addChangeListener(({colorScheme}) => {
+      setTheme(colorScheme === 'dark' ? darkTheme : lightTheme);
+    });
+
+    return () => subscription.remove();
+  }, []);
 
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>

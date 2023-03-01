@@ -1,6 +1,7 @@
-import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator, StackHeaderProps} from '@react-navigation/stack';
+import React from 'react';
+import Header from './components/organism/Header/header';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import {RootStackParamList} from './utils/types';
 
@@ -10,7 +11,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen
+          options={{
+            header: (props: StackHeaderProps) => <Header {...props} />,
+          }}
+          name="Home"
+          component={HomeScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
