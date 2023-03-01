@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator, StackHeaderProps} from '@react-navigation/stack';
 import React from 'react';
-import Header from './components/organism/Header/header';
+import Header from './components/organism/Header/Header';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import {RootStackParamList} from './utils/types';
 

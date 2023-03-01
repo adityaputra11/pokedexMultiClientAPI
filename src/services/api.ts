@@ -16,9 +16,10 @@ const clients = {
   fetch: {
     get: async (path: string) => {
       const response = await api.get(path);
-      return response.data;
+      return response;
     },
   },
 };
+
 export {CLIENT};
 export default clients;
