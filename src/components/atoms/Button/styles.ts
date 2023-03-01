@@ -10,12 +10,11 @@ const styles: ButtonStyles = StyleSheet.create<ButtonStyles>({
     backgroundColor: '#E6AB07',
     padding: 12,
     borderRadius: 10,
-    margin: 10,
   },
   text: {
     color: 'white',
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });

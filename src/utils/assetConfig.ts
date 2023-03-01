@@ -1,7 +1,8 @@
 //IMAGES
 const POKEMON_GROUP_IMAGE = require('../assets/images/pokemon_group.png');
+const POKEMON_ICON = require('../assets/images/pokemon_icon.png');
 const BACKGROUND_IMAGE = require('../assets/images/pokemon_group.png');
 
-const IMAGES = {POKEMON_GROUP_IMAGE, BACKGROUND_IMAGE};
+const IMAGES = {POKEMON_GROUP_IMAGE, BACKGROUND_IMAGE, POKEMON_ICON};
 
 export {IMAGES};

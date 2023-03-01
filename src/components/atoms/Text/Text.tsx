@@ -1,15 +1,24 @@
-import React from 'react';
-import {Text as RNText, TextProps as RNTextProps} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import React, {useContext} from 'react';
+import {
+  StyleProp,
+  Text as RNText,
+  TextProps as RNTextProps,
+  TextStyle,
+} from 'react-native';
+import {ThemeContext} from '../../../theme/ThemeProvider';
 import styles from './styles';
 
 export interface TextProps extends RNTextProps {
   children: React.ReactNode;
-  fsize?: 'bold' | 'medium' | 'light';
+  weight?: 'bold' | 'medium' | 'light';
+  style?: StyleProp<TextStyle>;
 }
 
-const Text = ({children, fsize, ...props}: TextProps) => {
+const Text = ({children, weight, style, ...props}: TextProps) => {
+  const {theme} = useContext(ThemeContext);
   const getFontSize = () => {
-    switch (fsize) {
+    switch (weight) {
       case 'bold':
         return 'Poppins-Bold';
       case 'medium':
@@ -21,7 +30,13 @@ const Text = ({children, fsize, ...props}: TextProps) => {
     }
   };
   return (
-    <RNText style={[styles.text, {fontFamily: getFontSize()}]} {...props}>
+    <RNText
+      style={[
+        styles.text,
+        {fontFamily: getFontSize(), color: theme.textColor},
+        style,
+      ]}
+      {...props}>
       {children}
     </RNText>
   );
