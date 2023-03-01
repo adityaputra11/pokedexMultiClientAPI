@@ -1,33 +1,67 @@
-import React, {FC, useContext, useRef} from 'react';
-import {FlatList, View} from 'react-native';
+import React, {FC, useCallback, useContext, useRef} from 'react';
+import {FlatList, ListRenderItem, View} from 'react-native';
 
 import {ThemeContext} from '../../../theme/ThemeProvider';
-import Text from '../../atoms/Text/Text';
+import {Card} from '@molecules';
 import OnBoarding from '../Onboarding/Onboarding';
 import styles from './styles';
+import {PokemonResult} from '../../../utils/types';
+import {Text} from '@atoms';
 
-const PokemonList: FC<any> = () => {
+type PokemonListProps = {
+  data: PokemonResult[];
+};
+
+type RenderItemProps = {
+  item: PokemonResult;
+  index: number;
+};
+
+const PokemonList: FC<any> = ({data}: PokemonListProps) => {
   const {theme} = useContext(ThemeContext);
 
   //reff
   const flatListRef = useRef<FlatList>(null);
 
-  const handleButtonPress = () => {
+  const handleButtonPress = useCallback(() => {
     flatListRef.current?.scrollToIndex({index: 0, animated: true});
+  }, []);
+
+  const renderTitle = (index: number) => {
+    if (index === 0) {
+      return (
+        <View style={styles.renderTitle}>
+          <Text size={36} weight="bold">
+            PokèDex
+          </Text>
+          <Text size={20}>All Generation totaling 999999 Pokemon</Text>
+        </View>
+      );
+    }
+    return null;
   };
 
-  const renderItem = ({item}: {item: number}) => {
-    return (
-      <View style={[styles.renderItem, {height: theme.screenHeight}]}>
-        <Text>Hello World : {item}</Text>
-      </View>
-    );
-  };
+  const renderItem: ListRenderItem<PokemonResult> = useCallback(
+    ({item, index}: RenderItemProps) => {
+      return (
+        <View style={[styles.renderItem]} key={item.url}>
+          {renderTitle(index)}
+          <Card label={item.name} index={index + 1} />
+        </View>
+      );
+    },
+    [],
+  );
+
+  const keyExtractor = useCallback(
+    (item: PokemonResult) => String(item.url),
+    [],
+  );
 
   return (
     <FlatList
       ref={flatListRef}
-      data={[1, 2, 3, 4, 5]}
+      data={data}
       removeClippedSubviews={true}
       ListHeaderComponent={
         <OnBoarding
@@ -37,7 +71,7 @@ const PokemonList: FC<any> = () => {
         />
       }
       renderItem={renderItem}
-      keyExtractor={item => `${item}`}
+      keyExtractor={keyExtractor}
     />
   );
 };

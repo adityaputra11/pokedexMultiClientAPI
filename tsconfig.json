@@ -3,11 +3,11 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@atoms/*": ["components/atoms/*"],
-      "@molecules/*": ["components/molecules/*"],
-      "@organisms/*": ["components/organisms/*"],
-      "@templates/*": ["components/templates/*"],
-       "@theme/*": ["theme/*"]
+      "@atoms": ["components/atoms"],
+      "@molecules": ["components/molecules"],
+      "@organisms": ["components/organisms"],
+      "@templates": ["components/templates"],
+       "@theme": ["theme"]
     },
   }
 }

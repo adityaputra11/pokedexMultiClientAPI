@@ -10,7 +10,7 @@ export type ImageProps = RNImageProps & {
   style?: StyleProp<ViewStyle>;
   width?: number | string;
   height?: number | string;
-  testID: string;
+  testID?: string;
 };
 
 const Image = ({style, width, height, testID, ...rest}: ImageProps) => {

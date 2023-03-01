@@ -1,4 +1,4 @@
-import {ApiClient} from './../../utils/types';
+import {ApiClient, PokemonResponse} from './../../utils/types';
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 interface FetchDataProps {
@@ -10,7 +10,6 @@ export const fetchPokemon = createAsyncThunk(
   async ({apiClient}: FetchDataProps, thunkAPI) => {
     try {
       const response = await apiClient.get('/pokemon');
-      console.log('response', response);
       return response.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,7 +18,7 @@ export const fetchPokemon = createAsyncThunk(
 );
 
 interface PokemonState {
-  pokemon: any; // Replace `any` with your specific data type
+  pokemon: PokemonResponse | null; // Replace `any` with your specific data type
   isLoading: boolean;
   error: string | null;
 }
