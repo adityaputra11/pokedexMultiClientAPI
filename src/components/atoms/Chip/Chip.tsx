@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, Pressable} from 'react-native';
+import {Pressable, Text} from 'react-native';
+import styles from './styles';
 
 interface ChipProps {
   label: string;
@@ -14,19 +15,5 @@ const Chip = ({label, onPress, testID}: ChipProps) => {
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#eee',
-    borderRadius: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    margin: 4,
-  },
-  label: {
-    color: '#333',
-    fontSize: 16,
-  },
-});
 
 export default Chip;

@@ -1,5 +1,5 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, StackHeaderProps} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import Header from './components/organism/Header/Header';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
@@ -13,7 +13,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           options={{
-            header: (props: StackHeaderProps) => <Header {...props} />,
+            header: () => <Header />,
           }}
           name="Home"
           component={HomeScreen}

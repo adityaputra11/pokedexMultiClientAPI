@@ -1,6 +1,6 @@
+import {Chip} from '@atoms/index';
 import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import Chip from '../../atoms/Chip/Chip';
 
 interface ChipGroupProps {
   data: Array<{id: number; label: string}>;

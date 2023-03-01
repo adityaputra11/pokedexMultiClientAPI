@@ -10,13 +10,7 @@ interface ButtonProps {
   testID: string;
 }
 
-export default function Button({
-  onPress,
-  title,
-  disabled,
-  style,
-  testID,
-}: ButtonProps) {
+const Button = ({onPress, title, disabled, style, testID}: ButtonProps) => {
   return (
     <Pressable
       testID={testID}
@@ -26,4 +20,6 @@ export default function Button({
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
-}
+};
+
+export default Button;
