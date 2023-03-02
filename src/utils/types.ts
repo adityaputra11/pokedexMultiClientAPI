@@ -1,3 +1,4 @@
+import {BottomSheetRef} from './../components/atoms/BottomSheet/BottomSheet';
 // i would like use type for state and props, interface for response api
 
 export type RootStackParamList = {
@@ -21,3 +22,19 @@ export interface PokemonResponse {
   previous: string | null;
   results: PokemonResult[];
 }
+
+export interface PokemonType {
+  name: string;
+  url: string;
+  color: string;
+}
+
+export interface PokemonData {
+  id: number;
+  name: string;
+  number: string;
+  types: PokemonType[];
+  image: string;
+}
+
+export type BottomSheetHandle = BottomSheetRef;

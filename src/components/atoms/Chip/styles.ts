@@ -9,12 +9,12 @@ const styles: ChipStyles = StyleSheet.create<ChipStyles>({
   container: {
     backgroundColor: '#eee',
     borderRadius: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    paddingVertical: 4,
+    paddingHorizontal: 14,
     margin: 4,
   },
   label: {
-    color: '#333',
+    color: '#FFFFFF',
     fontSize: 16,
   },
 });
