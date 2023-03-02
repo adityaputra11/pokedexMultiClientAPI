@@ -8,7 +8,8 @@ import withApiClient from '../../hoc/withApiClient';
 import {fetchPokemon} from '../../redux/reducers/pokemon';
 import {useAppDispatch} from '../../redux/store';
 import {CLIENT} from '../../services/api';
-import {ApiClient, PokemonResponse} from '../../utils/types';
+import {ApiClient, PokemonData} from '../../utils/types';
+import styles from './styles';
 
 interface HomeProps {
   apiClient: ApiClient;
@@ -16,7 +17,7 @@ interface HomeProps {
 
 const Home: FC<HomeProps> = ({apiClient}: HomeProps) => {
   const dispatch = useAppDispatch();
-  const pokemon = useSelector<RootState, PokemonResponse | null>(
+  const pokemon = useSelector<RootState, PokemonData[] | null | undefined>(
     state => state.pokemon.pokemon,
   );
 
@@ -35,8 +36,8 @@ const Home: FC<HomeProps> = ({apiClient}: HomeProps) => {
   }
 
   return (
-    <View>
-      <PokemonList data={pokemon?.results} />
+    <View style={styles.container}>
+      <PokemonList data={pokemon} />
     </View>
   );
 };

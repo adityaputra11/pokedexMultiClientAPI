@@ -6,4 +6,7 @@ const MENU_BARS = require('../assets/images/menu_bar.png');
 
 const IMAGES = {POKEMON_GROUP_IMAGE, BACKGROUND_IMAGE, POKEMON_ICON, MENU_BARS};
 
-export {IMAGES};
+const POKEMON_URI_IMAGE =
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+const URI = {POKEMON_URI_IMAGE};
+export {IMAGES, URI};

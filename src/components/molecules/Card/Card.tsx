@@ -1,33 +1,39 @@
 import {Image, Text} from '@atoms';
 import React, {useContext} from 'react';
-import {View} from 'react-native';
+import {Pressable, View} from 'react-native';
 import {ThemeContext} from '@theme';
 import styles from './styles';
-import {IMAGES} from '../../../utils/assetConfig';
+import ChipGroup, {ChipDataProps} from '../ChipGroup/ChipGroup';
 
 type CardProps = {
   label: string;
   index?: number;
+  imageSource: string;
+  types: ChipDataProps[];
+  onPress?: () => void;
 };
 
-const Card = ({label, index}: CardProps) => {
+const Card = ({label, index, imageSource, types, onPress}: CardProps) => {
   const {theme} = useContext(ThemeContext);
   return (
-    <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
+    <Pressable
+      onPress={onPress}
+      style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
       <Image
-        source={IMAGES.POKEMON_GROUP_IMAGE}
+        source={{uri: imageSource}}
         width={200}
         height={200}
         resizeMode="contain"
-        style={{backgroundColor: 'red'}}
+        style={{backgroundColor: types[0].color}}
       />
-      <Text weight="medium" style={styles.text}>
+      <Text weight="bold" style={styles.textNumber}>
         #{`${index}`.padStart(3, '0')}
       </Text>
       <Text weight="bold" style={styles.text}>
         {label}
       </Text>
-    </View>
+      <ChipGroup data={types} column={3} />
+    </Pressable>
   );
 };
 
