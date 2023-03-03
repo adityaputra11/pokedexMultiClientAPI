@@ -1,9 +1,9 @@
 import {Image, Text} from '@atoms';
-import React, {useContext} from 'react';
-import {Pressable, View} from 'react-native';
 import {ThemeContext} from '@theme';
-import styles from './styles';
+import React, {useContext} from 'react';
+import {Pressable} from 'react-native';
 import ChipGroup, {ChipDataProps} from '../ChipGroup/ChipGroup';
+import styles from './styles';
 
 type CardProps = {
   label: string;

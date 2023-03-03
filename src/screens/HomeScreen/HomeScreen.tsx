@@ -1,9 +1,8 @@
-import {Text} from '@atoms';
+import {Text, View} from '@atoms';
+import {PokemonList} from '@organisms';
 import React, {ComponentType, FC, useEffect} from 'react';
-import {View} from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from 'redux/reducers/rootReducer';
-import PokemonList from '../../components/organism/PokemonList/PokemonList';
 import withApiClient from '../../hoc/withApiClient';
 import {fetchPokemon} from '../../redux/reducers/pokemon';
 import {useAppDispatch} from '../../redux/store';

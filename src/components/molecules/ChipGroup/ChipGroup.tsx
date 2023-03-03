@@ -1,6 +1,7 @@
 import {Chip} from '@atoms';
 import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, ViewStyle, StyleProp} from 'react-native';
+import {View} from '@atoms';
 
 export type ChipDataProps = {
   id: string;
@@ -12,9 +13,10 @@ type ChipGroupProps = {
   data: ChipDataProps[];
   onChipPress?: (id: string) => void;
   column?: number;
+  style?: StyleProp<ViewStyle>;
 };
 
-const ChipGroup = ({data, onChipPress, column}: ChipGroupProps) => {
+const ChipGroup = ({data, onChipPress, column, style}: ChipGroupProps) => {
   const renderItem = ({item}: {item: ChipDataProps}) => {
     const handlePress = () => {
       onChipPress && onChipPress(item.id);
@@ -31,7 +33,7 @@ const ChipGroup = ({data, onChipPress, column}: ChipGroupProps) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <FlatList
         data={data}
         renderItem={renderItem}

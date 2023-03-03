@@ -3,6 +3,7 @@ import {BottomSheetRef} from './../components/atoms/BottomSheet/BottomSheet';
 
 export type RootStackParamList = {
   Home: undefined;
+  PokemonDetail: undefined;
 };
 
 export type ApiClient = {
@@ -35,6 +36,20 @@ export interface PokemonData {
   number: string;
   types: PokemonType[];
   image: string;
+  abilities: Abilities[];
+  weight: number;
+  height: number;
+}
+
+interface Ability {
+  name: string;
+  url: string;
+}
+
+interface Abilities {
+  ability: Ability;
+  is_hidden: boolean;
+  slot: number;
 }
 
 export type BottomSheetHandle = BottomSheetRef;

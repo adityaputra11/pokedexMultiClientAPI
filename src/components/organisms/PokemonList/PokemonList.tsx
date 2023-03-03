@@ -1,12 +1,12 @@
-import React, {FC, useCallback, useContext, useRef} from 'react';
-import {FlatList, ListRenderItem, View} from 'react-native';
+import React, {FC, useCallback, useContext, useRef, useState} from 'react';
+import {FlatList, ListRenderItem, View as RNView} from 'react-native';
 
-import {ThemeContext} from '../../../theme/ThemeProvider';
-import {Card} from '@molecules';
+import {Text, View} from '@atoms';
+import {Card, BottomSheetPokemon} from '@molecules';
+import {ThemeContext} from '@theme';
+import {BottomSheetHandle, PokemonData} from '../../../utils/types';
 import OnBoarding from '../Onboarding/Onboarding';
 import styles from './styles';
-import {BottomSheetHandle, PokemonData} from '../../../utils/types';
-import {BottomSheet, Text} from '@atoms';
 
 type PokemonListProps = {
   data: PokemonData[];
@@ -19,6 +19,7 @@ type RenderItemProps = {
 
 const PokemonList: FC<any> = ({data}: PokemonListProps) => {
   const {theme} = useContext(ThemeContext);
+  const [detail, setDetail] = useState<PokemonData | null>(null);
 
   //reff
   const flatListRef = useRef<FlatList>(null);
@@ -30,12 +31,12 @@ const PokemonList: FC<any> = ({data}: PokemonListProps) => {
   const renderTitle = (index: number) => {
     if (index === 0) {
       return (
-        <View style={styles.renderTitle}>
+        <RNView style={styles.renderTitle}>
           <Text size={36} weight="bold">
             PokèDex
           </Text>
           <Text size={20}>All Generation totaling 999999 Pokemon</Text>
-        </View>
+        </RNView>
       );
     }
     return null;
@@ -46,7 +47,9 @@ const PokemonList: FC<any> = ({data}: PokemonListProps) => {
     bottomSheetRef.current?.expand(1);
   };
 
-  const handlePressCard = (name: string) => {
+  const handlePressCard = (item: PokemonData) => {
+    console.log('item', item);
+    setDetail(item);
     handleOpen();
   };
 
@@ -56,7 +59,7 @@ const PokemonList: FC<any> = ({data}: PokemonListProps) => {
         <View style={[styles.renderItem]} key={index}>
           {renderTitle(index)}
           <Card
-            onPress={() => handlePressCard(item.name)}
+            onPress={() => handlePressCard(item)}
             label={item.name}
             index={item.id}
             imageSource={item.image}
@@ -90,12 +93,10 @@ const PokemonList: FC<any> = ({data}: PokemonListProps) => {
         renderItem={renderItem}
         keyExtractor={keyExtractor}
       />
-      <BottomSheet
-        ref={bottomSheetRef}
-        snapPoints={[theme.screenHeight]}
-        enablePanDownToClose>
-        <Text>Hello WOrld</Text>
-      </BottomSheet>
+      <BottomSheetPokemon
+        bottomSheetRef={bottomSheetRef}
+        detail={detail as PokemonData}
+      />
     </>
   );
 };

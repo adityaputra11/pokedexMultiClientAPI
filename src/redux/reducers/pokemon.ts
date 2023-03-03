@@ -32,6 +32,9 @@ export const fetchPokemon = createAsyncThunk(
               name: pokemonData.name,
               image: `${URI.POKEMON_URI_IMAGE}${pokemonData.id}.png`,
               types,
+              weight: pokemonData.weight,
+              height: pokemonData.height,
+              abilities: pokemonData.abilities,
             };
           }),
         );

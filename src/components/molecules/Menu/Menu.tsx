@@ -1,5 +1,6 @@
 import React, {useCallback, useMemo, useRef} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {View, Text} from '@atoms';
 import BottomSheet from '@gorhom/bottom-sheet';
 
 const Menu = () => {

@@ -9,7 +9,7 @@ const styles: ButtonStyles = StyleSheet.create<ButtonStyles>({
   container: {
     backgroundColor: '#E6AB07',
     padding: 12,
-    borderRadius: 10,
+    borderRadius: 14,
   },
   text: {
     color: 'white',
