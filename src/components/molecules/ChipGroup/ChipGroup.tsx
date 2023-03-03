@@ -1,15 +1,23 @@
-import {Chip} from '@atoms/index';
+import {Chip} from '@atoms';
 import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, ViewStyle, StyleProp} from 'react-native';
+import {View} from '@atoms';
 
-interface ChipGroupProps {
-  data: Array<{id: number; label: string}>;
-  onChipPress?: (id: number) => void;
+export type ChipDataProps = {
+  id: string;
+  label: string;
+  color: string;
+};
+
+type ChipGroupProps = {
+  data: ChipDataProps[];
+  onChipPress?: (id: string) => void;
   column?: number;
-}
+  style?: StyleProp<ViewStyle>;
+};
 
-const ChipGroup = ({data, onChipPress, column}: ChipGroupProps) => {
-  const renderItem = ({item}: {item: {id: number; label: string}}) => {
+const ChipGroup = ({data, onChipPress, column, style}: ChipGroupProps) => {
+  const renderItem = ({item}: {item: ChipDataProps}) => {
     const handlePress = () => {
       onChipPress && onChipPress(item.id);
     };
@@ -19,12 +27,13 @@ const ChipGroup = ({data, onChipPress, column}: ChipGroupProps) => {
         testID={`chip-${item.id}`}
         label={item.label}
         onPress={handlePress}
+        color={item.color}
       />
     );
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -37,9 +46,7 @@ const ChipGroup = ({data, onChipPress, column}: ChipGroupProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 8,
-  },
+  container: {},
 });
 
 export default ChipGroup;

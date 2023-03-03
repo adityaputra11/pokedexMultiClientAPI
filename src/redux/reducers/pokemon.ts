@@ -1,5 +1,7 @@
-import {ApiClient, PokemonResponse} from './../../utils/types';
+import {ApiClient, PokemonType, PokemonData} from './../../utils/types';
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {URI} from '../../utils/assetConfig';
+import {TYPE_COLORS} from '../../utils/constants';
 
 interface FetchDataProps {
   apiClient: ApiClient;
@@ -9,8 +11,36 @@ export const fetchPokemon = createAsyncThunk(
   'pokemon/fetchPokemon',
   async ({apiClient}: FetchDataProps, thunkAPI) => {
     try {
-      const response = await apiClient.get('/pokemon');
-      return response.data;
+      const response = await apiClient.get('/pokemon?limit=20');
+      if (response.ok) {
+        const pokemon = await Promise.all(
+          response.data.results.map(async (result: any) => {
+            const res = await fetch(result.url);
+            const pokemonData = await res.json();
+            const types: PokemonType[] = pokemonData.types.map((type: any) => {
+              const name = type.type.name;
+              const color = TYPE_COLORS[name];
+
+              return {
+                name,
+                url: type.type.url,
+                color,
+              };
+            });
+            return {
+              id: pokemonData.id,
+              name: pokemonData.name,
+              image: `${URI.POKEMON_URI_IMAGE}${pokemonData.id}.png`,
+              types,
+              weight: pokemonData.weight,
+              height: pokemonData.height,
+              abilities: pokemonData.abilities,
+            };
+          }),
+        );
+
+        return pokemon as PokemonData[];
+      }
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -18,7 +48,7 @@ export const fetchPokemon = createAsyncThunk(
 );
 
 interface PokemonState {
-  pokemon: PokemonResponse | null; // Replace `any` with your specific data type
+  pokemon: PokemonData[] | null | undefined; // Replace `any` with your specific data type
   isLoading: boolean;
   error: string | null;
 }

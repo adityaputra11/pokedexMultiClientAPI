@@ -5,13 +5,14 @@ module.exports = {
       'module-resolver',
       {
         alias: {
-          '@atom': './src/components/atoms',
-          '@molecule': './src/components/molecules',
-          '@organism': './src/components/organisms',
-          '@template': './src/components/templates',
+          '@atoms': './src/components/atoms',
+          '@molecules': './src/components/molecules',
+          '@organisms': './src/components/organisms',
+          '@templates': './src/components/templates',
           '@theme': './src/theme',
         },
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 };

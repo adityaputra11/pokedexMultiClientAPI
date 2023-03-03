@@ -1,10 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text, Button, Image} from '@atoms';
 import {IMAGES} from '../../../utils/assetConfig';
-import Button from '../../atoms/Button/Button';
-import Image from '../../atoms/Image/Image';
-import Text from '../../atoms/Text/Text';
 import styles from './styles';
+import {Header} from '@organisms';
 
 type OnBoardingProps = {
   height: number;
@@ -23,6 +21,7 @@ const OnBoarding = ({
         styles.container,
         {height: height, backgroundColor: backgroundColor},
       ]}>
+      <Header />
       <Image
         testID="image-home"
         source={IMAGES.POKEMON_GROUP_IMAGE}

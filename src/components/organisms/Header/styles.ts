@@ -2,14 +2,19 @@ import {StyleSheet, ViewStyle} from 'react-native';
 
 type HeaderStyles = {
   container: ViewStyle;
+  containerContent: ViewStyle;
 };
 
 const styles = StyleSheet.create<HeaderStyles>({
   container: {
-    paddingVertical: 20,
-    paddingLeft: 10,
+    paddingBottom: 20,
+    paddingLeft: 24,
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  containerContent: {
+    paddingTop: 10,
+    paddingHorizontal: 10,
   },
 });
 

@@ -7,7 +7,7 @@ interface ButtonProps {
   title: string;
   disabled?: boolean;
   style?: ViewStyle;
-  testID: string;
+  testID?: string;
 }
 
 const Button = ({onPress, title, disabled, style, testID}: ButtonProps) => {

@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Header from './components/organism/Header/Header';
+import PokemonDetailScreen from '../src/screens/PokemonDetailScreen/PokemonDetailScreen';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import {RootStackParamList} from './utils/types';
 
@@ -10,14 +10,9 @@ const Stack = createStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          options={{
-            header: () => <Header />,
-          }}
-          name="Home"
-          component={HomeScreen}
-        />
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="PokemonDetail" component={PokemonDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
